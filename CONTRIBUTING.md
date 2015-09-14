@@ -5,8 +5,6 @@
 * [Submitting Issues](#submitting-issues)
 * [Pull Requests](#pull-requests)
 * [Git Commit Messages](#git-commit-messages)
-* [Documentation Styleguide](#documentation-styleguide)
-* [Issue and Pull Request Labels](#issue-and-pull-request-labels)
 
 
 ## Submitting Issues
