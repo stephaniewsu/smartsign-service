@@ -2,10 +2,20 @@
 
 #### Table Of Contents
 
+* [Workflow](#workflow)
 * [Submitting Issues](#submitting-issues)
 * [Pull Requests](#pull-requests)
 * [Git Commit Messages](#git-commit-messages)
 
+## Workflow
+
+* `master` branch MUST stay clean and nothing should be pushed there directly.
+* When you want to start working on a feature or a bug fix, always check off of master.
+* Use descriptive branch names, for example `user-authenticator`.
+* 1. Fork
+* 2. Make changes locally and keep pushing to your branch.
+* 3. When you're ready to push the changes, submit a pull request and @mention people to get your PR reviewed. 
+* DO NOT MERGE your pull request to master until everyone you mentioned has reviewed your code and "thumbs up-ed".
 
 ## Submitting Issues
 
