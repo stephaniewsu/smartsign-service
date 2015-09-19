@@ -98,16 +98,10 @@ public class SmartSignAccessibilityService extends AccessibilityService {
     protected boolean onGesture(int gestureId) {
         // TODO Auto-generated method stub
 
-        if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT){
-            Log.d("YAAAAAY", "GESTURE DETECTED!");
-            
-            Log.d("Word to translate:", translatedWord);
-
-        }else{
-            Log.d("NOOOOOO", "GESTURE WAS NOT DETECTED :(");
+        if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT) {
+            Toast.makeText(this, "Translated word:" + translatedWord, Toast.LENGTH_SHORT).show();
         }
-
-        Log.d("onGESTURE",Integer.toString(gestureId));
+        
         return super.onGesture(gestureId);
     }
 
