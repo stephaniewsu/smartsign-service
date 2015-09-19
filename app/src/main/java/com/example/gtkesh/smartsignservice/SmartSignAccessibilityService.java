@@ -2,6 +2,7 @@ package com.example.gtkesh.smartsignservice;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.TargetApi;
+import android.content.ClipboardManager;
 import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
  */
 public class SmartSignAccessibilityService extends AccessibilityService {
     private static final String TAG = "SmartSign Accessibility Service";
+    private String translatedWord = "";
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -43,6 +45,11 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         // Do something nifty with this text, like speak the composed string
         // back to the user.
         Log.d("EVENT_TEXT", eventText);
+        Log.d("Event Type", "" + event.getEventType());
+
+        ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+        translatedWord = clipboardManager.getText().toString();
+        Log.d("Clipboard", translatedWord);
     }
 
     @Override
@@ -81,7 +88,7 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         info.flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;
         am = (AccessibilityManager)getSystemService(ACCESSIBILITY_SERVICE);
 
-        Log.i("ACCESSSSSSS 2","accessibilityEnabled: " + am.isEnabled() + " touchExplorationEnabled: " + am.isTouchExplorationEnabled());
+        Log.i("ACCESSSSSSS 2", "accessibilityEnabled: " + am.isEnabled() + " touchExplorationEnabled: " + am.isTouchExplorationEnabled());
 
         this.setServiceInfo(info);
 
@@ -93,6 +100,9 @@ public class SmartSignAccessibilityService extends AccessibilityService {
 
         if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT){
             Log.d("YAAAAAY", "GESTURE DETECTED!");
+            
+            Log.d("Word to translate:", translatedWord);
+
         }else{
             Log.d("NOOOOOO", "GESTURE WAS NOT DETECTED :(");
         }
