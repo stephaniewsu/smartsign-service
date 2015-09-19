@@ -100,7 +100,7 @@ public class SmartSignAccessibilityService extends AccessibilityService {
 
         if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT){
             Log.d("YAAAAAY", "GESTURE DETECTED!");
-            
+            Toast.makeText(this, "Translated word:" + translatedWord, Toast.LENGTH_SHORT).show();
             Log.d("Word to translate:", translatedWord);
 
         }else{
