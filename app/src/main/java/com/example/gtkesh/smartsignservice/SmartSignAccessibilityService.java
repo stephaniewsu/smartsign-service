@@ -2,6 +2,7 @@ package com.example.gtkesh.smartsignservice;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.TargetApi;
+import android.content.ClipboardManager;
 import android.gesture.Gesture;
 import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
@@ -43,6 +44,11 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         // Do something nifty with this text, like speak the composed string
         // back to the user.
         Log.d("EVENT_TEXT", eventText);
+        Log.d("Event Type", "" + event.getEventType());
+
+        ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+        String str = clipboardManager.getText().toString();
+        Log.d("Clipboard", str);
     }
 
     @Override
@@ -81,7 +87,7 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         info.flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;
         am = (AccessibilityManager)getSystemService(ACCESSIBILITY_SERVICE);
 
-        Log.i("ACCESSSSSSS 2","accessibilityEnabled: " + am.isEnabled() + " touchExplorationEnabled: " + am.isTouchExplorationEnabled());
+        Log.i("ACCESSSSSSS 2", "accessibilityEnabled: " + am.isEnabled() + " touchExplorationEnabled: " + am.isTouchExplorationEnabled());
 
         this.setServiceInfo(info);
 
@@ -93,6 +99,11 @@ public class SmartSignAccessibilityService extends AccessibilityService {
 
         if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT){
             Log.d("YAAAAAY", "GESTURE DETECTED!");
+
+            ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+            String str = clipboardManager.getText().toString();
+            Log.d("Word to translate:", str);
+
         }else{
             Log.d("NOOOOOO", "GESTURE WAS NOT DETECTED :(");
         }
