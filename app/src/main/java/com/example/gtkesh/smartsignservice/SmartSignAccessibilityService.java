@@ -20,6 +20,7 @@ import java.util.ArrayList;
  */
 public class SmartSignAccessibilityService extends AccessibilityService {
     private static final String TAG = "SmartSign Accessibility Service";
+    private String translatedWord = "";
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -47,8 +48,8 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         Log.d("Event Type", "" + event.getEventType());
 
         ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        String str = clipboardManager.getText().toString();
-        Log.d("Clipboard", str);
+        translatedWord = clipboardManager.getText().toString();
+        Log.d("Clipboard", translatedWord);
     }
 
     @Override
@@ -99,10 +100,8 @@ public class SmartSignAccessibilityService extends AccessibilityService {
 
         if(gestureId == AccessibilityService.GESTURE_SWIPE_UP_AND_LEFT){
             Log.d("YAAAAAY", "GESTURE DETECTED!");
-
-            ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-            String str = clipboardManager.getText().toString();
-            Log.d("Word to translate:", str);
+            
+            Log.d("Word to translate:", translatedWord);
 
         }else{
             Log.d("NOOOOOO", "GESTURE WAS NOT DETECTED :(");
