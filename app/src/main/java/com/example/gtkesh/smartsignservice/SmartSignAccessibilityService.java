@@ -48,7 +48,9 @@ public class SmartSignAccessibilityService extends AccessibilityService {
         Log.d("Event Type", "" + event.getEventType());
 
         ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-        translatedWord = clipboardManager.getText().toString();
+        if (clipboardManager != null && clipboardManager.getText() != null) {
+            translatedWord = clipboardManager.getText().toString();
+        }
         Log.d("Clipboard", translatedWord);
     }
 
