@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.example.gtkesh.smartsignservice"
-        minSdkVersion 16
+        applicationId "com.example.smartsign.smartsignservice"
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

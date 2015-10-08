@@ -1,4 +1,4 @@
-package com.example.gtkesh.smartsignservice;
+package com.example.smartsign.smartsignservice;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
